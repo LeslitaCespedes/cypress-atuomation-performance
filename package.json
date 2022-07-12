@@ -1,0 +1,34 @@
+{
+  "name": "jornada-cypress-test",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "publishConfig": {
+    "registry": "http://nexus.viavarejo.com.br/repository/npm-private"
+  },
+  "cypress-cucumber-preprocessor": {
+    "step_definitions": "cypress/support/steps",
+    "nonGlobalStepDefinitions": false
+  },
+  "scripts": {
+    "cy:test": "cypress run --config video=false --env allure=true",
+    "cy:open": "cypress open",
+    "cy:dash": "npx cypress run --record --key {secrets_dash}",
+    "allure:report": "allure generate --clean allure-results && allure open"
+  },
+  "keywords": [
+    "cypress",
+    "tests",
+    "gherkin",
+    "github-actions"
+  ],
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "9.6.1",
+    "@shelex/cypress-allure-plugin": "2.23.0",
+    "cypress-cucumber-preprocessor": "4.3.1",
+    "cypress-xpath": "1.6.2",
+    "faker": "^5.5.3"
+  }
+}
